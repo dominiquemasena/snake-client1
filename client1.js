@@ -6,6 +6,16 @@ const connect = function() {
 
   });
   conn.setEncoding('utf8'); 
+
+  conn.on("connect", (connect) => {
+    console.log("Successfully connected to game server");
+  });
+
+  conn.on("connect", () => {
+    conn.write('Name: DGM');
+  });
+  
+
   conn.on("data", function (message) {
   
     console.log(message);
